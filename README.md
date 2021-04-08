@@ -17,7 +17,7 @@ A movie app build with [Flutter](https://flutter.dev/) & [TMDB Api](https://deve
 
 Hopefully this app gets better soon
 ## Demo
-<a href=''>Download</a>
+[Uploading aflaamuna-apk.zip…](Download)
 
 ## Flutter version
 >Flutter 2.1.0-12.1.pre  
