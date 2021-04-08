@@ -1,16 +1,53 @@
-# aflaamuna
+# Aflaamuna (Film Kita)
 
-A new Flutter project.
+A movie app build with [Flutter](https://flutter.dev/) & [TMDB Api](https://developers.themoviedb.org/3/getting-started/introduction).
+
+## ToDos
+- [ ] redesign UI
+- [ ] account detail
+- [ ] dark mode support
+- [ ] localization
+- [ ] search
+- [ ] share movie
+- [ ] favorite page
+- [ ] authentication page
+- [x] movie page
+- [x] detail page
+- [ ] unit testing & integration testing
+
+Hopefully this app gets better soon
+## Demo
+<a href=''>Download</a>
+
+## Flutter version
+>Flutter 2.1.0-12.1.pre  
+>Tools • Dart 2.13.0
+
+## Preview
+
+### moviepage
+
+<img src="assets/images/movie-page.jpg" alt="movie page 1" width="150"></img>
+<img src="assets/images/movie-page2.jpg" alt="movie page 2"  width="150"></img>
+
+### detaimoviepage
+<img src="assets/images/movie-detail-page.jpg" alt="movie detail page"  width="150"></img>
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+For help getting started with Flutter, view online
+[documentation](https://flutter.dev/).
 
-A few resources to get you started if this is your first Flutter project:
+#### 1. [Setup Flutter](https://flutter.dev/docs/get-started/install)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+#### 2. Clone the repo
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```sh
+$ git clone https://github.com/zaenury/aflaamuna.git
+$ cd aflaamuna
+```
+
+#### 4. Run the app
+
+```sh
+$ flutter run

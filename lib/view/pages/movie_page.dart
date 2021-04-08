@@ -259,12 +259,13 @@ class TilteWithMoreButton extends StatelessWidget {
           TitleWithCustomUnderline(text: title),
           Spacer(),
           ElevatedButton(
-              style: TextButton.styleFrom(
-                  backgroundColor: kPrimaryColor,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20))),
-              onPressed: tap,
-              child: Text("More"))
+            style: TextButton.styleFrom(
+                backgroundColor: kPrimaryColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20))),
+            onPressed: tap,
+            child: Text("More"),
+          )
         ],
       ),
     );

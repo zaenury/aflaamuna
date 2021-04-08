@@ -283,12 +283,10 @@ class _BackrdopAndRatingState extends State<BackrdopAndRating> {
                             isFavActive = false;
                             setIcon();
                             saveDataFav();
-                            //_cancelNotification1();
                           } else {
                             isFavActive = true;
                             setIcon();
                             saveDataFav();
-                            //_repeatNotification1();
                           }
                         });
                       },
