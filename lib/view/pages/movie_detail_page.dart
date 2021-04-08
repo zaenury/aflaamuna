@@ -123,10 +123,13 @@ class MovieDetailPage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: kDefaultPadding,
                       ),
-                      child: Text(
-                        '${movieDetail.revenue}',
-                        style: TextStyle(color: Colors.black),
-                      ),
+                      child: (movieDetail.revenue == 0.00)
+                          ? Text('-')
+                          : Text(
+                              NumberFormat.currency(locale: 'en', symbol: "\$ ")
+                                  .format(movieDetail.revenue),
+                              style: TextStyle(color: Colors.black),
+                            ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
