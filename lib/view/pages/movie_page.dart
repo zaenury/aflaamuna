@@ -42,6 +42,60 @@ class _MoviePageState extends State<MoviePage> {
           ],
         ),
       ),
+      bottomNavigationBar: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, -10),
+              blurRadius: 35,
+              color: kPrimaryColor.withOpacity(0.38),
+            )
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SizedBox(
+              height: 64,
+              width: 64,
+              child: IconButton(
+                icon: Icon(
+                  Icons.home,
+                  size: 30,
+                  color: kPrimaryColor,
+                ),
+                onPressed: () {},
+              ),
+            ),
+            SizedBox(
+              height: 64,
+              width: 64,
+              child: IconButton(
+                icon: Icon(
+                  Icons.favorite_border,
+                  size: 30,
+                  color: kPrimaryColor,
+                ),
+                onPressed: () {},
+              ),
+            ),
+            SizedBox(
+              height: 64,
+              width: 64,
+              child: IconButton(
+                icon: Icon(
+                  Icons.account_circle_outlined,
+                  size: 30,
+                  color: kPrimaryColor,
+                ),
+                onPressed: () {},
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

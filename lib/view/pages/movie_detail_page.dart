@@ -1,10 +1,15 @@
 part of 'pages.dart';
 
-class MovieDetailPage extends StatelessWidget {
+class MovieDetailPage extends StatefulWidget {
   final Movie movie;
 
   MovieDetailPage(this.movie);
 
+  @override
+  _MovieDetailPageState createState() => _MovieDetailPageState();
+}
+
+class _MovieDetailPageState extends State<MovieDetailPage> {
   @override
   Widget build(BuildContext context) {
     MovieDetail movieDetail;
@@ -17,7 +22,7 @@ class MovieDetailPage extends StatelessWidget {
       },
       child: Scaffold(
         body: FutureBuilder(
-          future: MovieServices.getDetails(movie),
+          future: MovieServices.getDetails(widget.movie),
           builder: (_, snapshot) {
             if (snapshot.hasData) {
               movieDetail = snapshot.data;
@@ -165,7 +170,7 @@ class MovieDetailPage extends StatelessWidget {
   }
 }
 
-class BackrdopAndRating extends StatelessWidget {
+class BackrdopAndRating extends StatefulWidget {
   const BackrdopAndRating({
     Key key,
     @required this.size,
@@ -176,18 +181,60 @@ class BackrdopAndRating extends StatelessWidget {
   final MovieDetail movieDetail;
 
   @override
+  _BackrdopAndRatingState createState() => _BackrdopAndRatingState();
+}
+
+class _BackrdopAndRatingState extends State<BackrdopAndRating> {
+  IconData firstIcon = Icons.favorite;
+
+  bool isFavActive = false;
+
+  Future<bool> saveDataFav() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    return pref.setBool("isFav", isFavActive);
+  }
+
+  Future<bool> loadDataFav() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    return preferences.getBool("isFav") ?? true;
+  }
+
+  setData() async {
+    loadDataFav().then((value) {
+      setState(() {
+        isFavActive = value;
+        setIcon();
+      });
+    });
+  }
+
+  setIcon() async {
+    if (isFavActive) {
+      firstIcon = Icons.favorite;
+    } else {
+      firstIcon = Icons.favorite_border;
+    }
+  }
+
+  @override
+  void initState() {
+    setData();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-      height: size.height * 0.4,
+      height: widget.size.height * 0.4,
       child: Stack(
         children: [
           Container(
-            height: size.height * 0.4 - 50,
+            height: widget.size.height * 0.4 - 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
               image: DecorationImage(
                   image: NetworkImage(
-                      imageBaseUrl + "w780" + movieDetail.backdrop),
+                      imageBaseUrl + "w780" + widget.movieDetail.backdrop),
                   fit: BoxFit.cover),
             ),
           ),
@@ -196,7 +243,7 @@ class BackrdopAndRating extends StatelessWidget {
             right: 0,
             child: Container(
               height: 100,
-              width: size.width * 0.9,
+              width: widget.size.width * 0.9,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -217,26 +264,34 @@ class BackrdopAndRating extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset('assets/icons/star_fill.svg'),
-                      Text('${movieDetail.voteAverage} / 10'),
-                      Text('${movieDetail.voteCount}'),
+                      Text('${widget.movieDetail.voteAverage} / 10'),
+                      Text('${widget.movieDetail.voteCount}'),
                     ],
                   ),
                   SizedBox(
-                    height: 54,
-                    width: 54,
-                    child: ElevatedButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: kPrimaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
+                    height: 64,
+                    width: 64,
+                    child: IconButton(
+                      icon: Icon(
+                        firstIcon,
+                        size: 30,
+                        color: Colors.red,
                       ),
-                      onPressed: () {},
-                      child: Icon(
-                        Icons.favorite,
-                        size: 18,
-                        color: Colors.white,
-                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (isFavActive) {
+                            isFavActive = false;
+                            setIcon();
+                            saveDataFav();
+                            //_cancelNotification1();
+                          } else {
+                            isFavActive = true;
+                            setIcon();
+                            saveDataFav();
+                            //_repeatNotification1();
+                          }
+                        });
+                      },
                     ),
                   ),
                   SizedBox(
@@ -250,7 +305,7 @@ class BackrdopAndRating extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        var url = '${movieDetail.homePage}';
+                        var url = '${widget.movieDetail.homePage}';
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {
