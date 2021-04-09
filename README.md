@@ -3,17 +3,19 @@
 A movie app build with [Flutter](https://flutter.dev/) & [TMDB Api](https://developers.themoviedb.org/3/getting-started/introduction).
 
 ## ToDos
+- [ ] favorite page
+- [x] movie page
+- [x] detail page
+- [ ] unit testing & integration testing
+
+## NextPlan
 - [ ] redesign UI
 - [ ] account detail
 - [ ] dark mode support
 - [ ] localization
 - [ ] search
 - [ ] share movie
-- [ ] favorite page
 - [ ] authentication page
-- [x] movie page
-- [x] detail page
-- [ ] unit testing & integration testing
 
 Hopefully this app gets better soon
 ## Demo
