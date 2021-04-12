@@ -32,6 +32,7 @@ Hopefully this app gets better soon
 <img src="assets/images/movie-page.jpg" alt="movie page 1" width="150"></img>
 <img src="assets/images/movie-page2.jpg" alt="movie page 2"  width="150"></img>
 
+
 ### detaimoviepage
 <img src="assets/images/movie-detail-page.jpg" alt="movie detail page"  width="150"></img>
 
@@ -49,7 +50,7 @@ $ git clone https://github.com/zaenury/aflaamuna.git
 $ cd aflaamuna
 ```
 
-#### 4. Run the app
+#### 3. Run the app
 
 ```sh
 $ flutter run
